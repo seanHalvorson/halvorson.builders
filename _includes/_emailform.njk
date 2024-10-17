@@ -1,0 +1,21 @@
+<form id="contactForm" novalidate>
+    <div class="row input-group-newsletter">
+        <div class="col">
+            <input class="form-control" id="email" type="email" placeholder="Enter email address..." aria-label="Enter email address..." required />
+            <div class="invalid-feedback mt-2">An email is required.</div>
+            <div class="invalid-feedback mt-2">Email is not valid.</div>
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary" id="submitButton" type="submit">Notify Me!</button>
+        </div>
+    </div>
+    <div class="d-none" id="submitSuccessMessage">
+        <div class="text-center mb-3 mt-2">
+            <div class="fw-bolder">Form submission successful!</div>
+        </div>
+    </div>
+    <div class="d-none" id="submitErrorMessage">
+        <div class="text-center text-danger mb-3 mt-2">Error sending message!</div>
+    </div>
+</form>
+ 
