@@ -12,24 +12,33 @@ export const config = {
 
 export default function (eleventyconfig) {
     // Function to build with esbuild
-    const build = async () => {
-        await esbuild.build({
-            entryPoints: ["js/index.js"],
-            bundle: true,
-            outfile: "_site/js/bundle.js",
-            sourcemap: true,
-            // target: ["chrome58", "firefox57", "safari11", "edge16"]
-        }).catch(() => process.exit(1));
-    };
 
+    const bundleJS = async () => {
+        try {
+            await esbuild.build({
+                entryPoints: ["js/index.js"],
+                bundle: true,
+                outfile: "_site/js/bundle.js",
+                sourcemap: true,
+            });
+            console.log('Build completed successfully.');
+        } catch (error) {
+            console.error('Build failed:', error);
+            process.exit(1);
+        }
+    };    
+    console.log(process.env.ELEVENTY_ENV   );     
     // Initial build
-    eleventyconfig.on("eleventy.before", build);
+    eleventyconfig.on("eleventy.before", bundleJS);
+ 
+    // Only watch for changes in serve mode
+    if (process.env.ELEVENTY_ENV === 'serve') {
+        chokidar.watch('js/**/*.js').on('change', async (path) => {
+            console.log(`File ${path} has changed. Rebuilding...`);
+            await build();
+        });
+    }
 
-    // Watch for changes in the JavaScript files
-    chokidar.watch('js/**/*.js').on('change', (path) => {
-        console.log(`File ${path} has changed. Rebuilding...`);
-        build();
-    });
 
     // Process YAML Files for Data
     eleventyconfig.addDataExtension("yml,yaml", (contents, filePath) => {
