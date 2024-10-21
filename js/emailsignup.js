@@ -51,7 +51,8 @@ function saveEmail(email, callback) {
         },
         body: JSON.stringify({
             access_key: '7bc48bf0-4655-489c-869e-504959b78c33', // Replace with your Web3Forms access key
-            email: email
+            email: email,
+            subject: `subscribe: ${email}`
         })
     })
     .then(response => response.json())

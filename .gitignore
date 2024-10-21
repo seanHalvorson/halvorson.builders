@@ -131,3 +131,6 @@ dist
 
 # Precompiled Site
 _site/
+
+#Mac Finder
+.DS_Store
