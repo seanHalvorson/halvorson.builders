@@ -22,11 +22,15 @@
   "homepage": "https://github.com/seanHalvorson/halvorson.builders#readme",
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-navigation": "^0.3.5",
     "chokidar": "^3.6.0",
+    "eleventy-sass": "^3.0.0-beta.0",
     "esbuild": "^0.24.0",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^4.1.0",
+    "lorem-ipsum": "^2.0.8"
   },
   "dependencies": {
+    "@picocss/pico": "^2.1.1",
     "netlify-plugin-cache": "^1.0.3"
   }
 }

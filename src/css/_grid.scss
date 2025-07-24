@@ -1,0 +1,21 @@
+//Grid layout for site
+#content {
+    display: grid;
+    grid-template:
+    [row1-start] "header header header" max-content [row1-end]
+    [row2-start] "content content content" max-content [row2-end]
+    [row3-start] "footer footer footer" max-content [row3-end]
+    / auto auto auto;
+    header{
+        grid-area: header;
+    }
+    main {
+        grid-area: content;
+        background-color: blue;
+        grid-area: auto
+    }
+    footer {
+        background-color: green;
+        grid-area: footer;
+    }
+}

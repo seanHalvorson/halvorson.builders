@@ -1,0 +1,73 @@
+// Media Queries
+@media print {
+    nav {
+    //hide menubar for print media
+    display: hidden
+    }
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 5em;
+    #masthead {
+        background-color: red;
+        width: 10em;
+        height: 5em;
+        display: block;
+    }
+    ul {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        li {
+        display: block;
+        }
+    }
+    a {
+        padding: 6px 12px;
+        text-decoration: none;
+    }
+    label, input[type='checkbox'] {
+        display: none;
+
+    }
+}
+
+@media (max-width: 576px) {
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: 0;
+        margin-right: 0;
+    
+    /* Because we are in mobile mode, we want to display it as a
+       vertical list */
+    ul {
+        display: block;
+        li{
+            margin-bottom: 0;
+            width: 100%;
+            text-align: right;
+            padding: 0.5em;
+        }
+    }
+    /* We have two lists: the first one are the always visibile items
+       in the menu bar. The second one is the one that will be hidden */
+    ul:last-child {
+        width: 100%;
+        flex-basis: 100%;
+    }
+    input[type='checkbox']:not(:checked)+ul {
+        display: none;
+    }
+    label {
+        text-align: right;
+        display:block;
+        padding: 0.5em;
+        line-height: 1.6em;
+        align-self: center;
+    }
+    }
+}

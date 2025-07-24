@@ -1,6 +1,8 @@
 import * as esbuild from 'esbuild';
 import chokidar from 'chokidar';
 import yaml from 'js-yaml';
+import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
+import eleventySass from 'eleventy-sass';
 
 export const config = {
     dir: {
@@ -11,6 +13,11 @@ export const config = {
 };
 
 export default function (eleventyconfig) {
+    var eleventyConfig = eleventyconfig;
+    eleventyconfig.addPlugin(eleventyNavigationPlugin);
+    eleventyconfig.addPlugin(eleventySass);
+
+
     // Function to build with esbuild
 
     const bundleJS = async () => {

@@ -1,0 +1,9 @@
+<nav>
+  <div id='masthead'>
+    </div>
+ <label for='menu'><i class="fa-solid fa-bars"></i></label>
+  <input id='menu' type='checkbox'>
+  <ul>
+    {{ collections.all | eleventyNavigation | eleventyNavigationToHtml | safe }}
+  </ul>
+</nav>
